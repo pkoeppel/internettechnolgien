@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorldProject.MainPage">
+
+    <StackLayout BackgroundColor="Red">
+        <Label x:Name="greetingName"/>
+        <Entry x:Name="nameEntry" Placeholder="Write your name"/>
+        <Button Text="Say hello" Clicked="Button_Clicked"/>
+    </StackLayout>
+
+</ContentPage>
