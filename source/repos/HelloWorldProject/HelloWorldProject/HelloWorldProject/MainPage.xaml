@@ -3,10 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HelloWorldProject.MainPage">
 
-    <StackLayout BackgroundColor="Red">
+    <StackLayout>
+        <Label Text="Welcome to the Project"
+            HorizontalOptions="CenterAndExpand"/>
         <Label x:Name="greetingName"/>
         <Entry x:Name="nameEntry" Placeholder="Write your name"/>
         <Button Text="Say hello" Clicked="Button_Clicked"/>
+        <Button x:Name="btCameraPage" Text="Open Camera Page" Clicked="btCameraPage_Clicked"/>
+        <Button x:Name="btMapsPage" Text="Open Map Page" Clicked="btMapsPage_Clicked"/>
+        <Button x:Name="btSensoricPage" Text="Open Sensor Page" Clicked="btSensoricPage_Clicked"/>
+        <Button x:Name="btNotifiPage" Text="Open Notification Page" Clicked="btNotifiPage_Clicked"/>
     </StackLayout>
 
 </ContentPage>

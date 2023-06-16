@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj": {}
+    "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj": {
+    "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj",
+        "projectUniqueName": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj",
         "projectName": "HelloWorldProject.Android",
-        "projectPath": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj",
-        "packagesPath": "C:\\Users\\KoeppelP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\obj\\",
+        "projectPath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\HelloWorldProject.Android.csproj",
+        "packagesPath": "C:\\Users\\pasi-\\.nuget\\packages\\",
+        "outputPath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\KoeppelP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pasi-\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid13.0": {
             "projectReferences": {
-              "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj": {
-                "projectPath": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj"
+              "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj": {
+                "projectPath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj"
               }
             }
           }
@@ -42,32 +42,36 @@
       "frameworks": {
         "monoandroid13.0": {
           "dependencies": {
+            "Plugin.LocalNotification": {
+              "target": "Package",
+              "version": "[10.1.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.6, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2578, )"
             }
           }
         }
       }
     },
-    "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj": {
+    "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj",
+        "projectUniqueName": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj",
         "projectName": "HelloWorldProject",
-        "projectPath": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj",
-        "packagesPath": "C:\\Users\\KoeppelP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KoeppelP\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\obj\\",
+        "projectPath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject.csproj",
+        "packagesPath": "C:\\Users\\pasi-\\.nuget\\packages\\",
+        "outputPath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\HelloWorldProject\\HelloWorldProject\\HelloWorldProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\KoeppelP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pasi-\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,13 +105,17 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Plugin.LocalNotification": {
+              "target": "Package",
+              "version": "[10.1.3, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.7.0, )"
+              "version": "[1.7.6, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[5.0.0.2196, )"
+              "version": "[5.0.0.2578, )"
             }
           },
           "imports": [

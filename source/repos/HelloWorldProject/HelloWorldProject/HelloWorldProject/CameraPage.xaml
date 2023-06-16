@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorldProject.CameraPage">
+    <StackLayout>
+        <Label Text="Welcome to the gallery and camera page"
+            HorizontalOptions="CenterAndExpand"/>
+        <Button x:Name="openGallery" Text="Open Gallery and pick random picture" Clicked="openGallery_Clicked"/>
+        <Button x:Name="openCamera" Text="Open your Camera and take a picture" Clicked="openCamera_Clicked"/>
+        <Image x:Name="selectedImage"/>
+    </StackLayout>
+</ContentPage>

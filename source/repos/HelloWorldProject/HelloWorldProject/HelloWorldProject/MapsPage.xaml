@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorldProject.MapsPage">
+    <StackLayout>
+        <Label Text="Welcome to the maps page!"
+                HorizontalOptions="CenterAndExpand" />
+        <Button x:Name="currLocation" Text="Get your current location" Clicked="currLocation_Clicked"/>
+        <Button x:Name="locOfBerlin" Text="Get the location of Berlin" Clicked="locOfBerlin_Clicked"/>
+        <Entry x:Name="longitude" Placeholder="longitude"/>
+        <Entry x:Name="latitude" Placeholder="latitude"/>
+        <Button x:Name="openSelectedLocation" Text="Open map" Clicked="openSelLoc_Clicked"/>
+        <Button x:Name="showBerlin" Text="Show Berlin" Clicked="showBerlin_Clicked"/>
+        <Button x:Name="dirBerlinCur" Text="Show direction between you and Berlin" Clicked="dirBerlinCur_Clicked"/>
+    </StackLayout>
+</ContentPage>

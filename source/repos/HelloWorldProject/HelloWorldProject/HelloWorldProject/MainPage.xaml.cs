@@ -21,5 +21,25 @@ namespace HelloWorldProject
             string greeting = "Hello " + username;
             greetingName.Text = greeting;
         }
+        private void btCameraPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CameraPage());
+        }
+
+        private void btMapsPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MapsPage());
+        }
+
+        private void btSensoricPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SensorPage());
+        }
+
+        private void btNotifiPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NotificationPage());
+        }
+
     }
 }
