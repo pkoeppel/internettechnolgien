@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Taschenrechner.MainPage">
+
+    <StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Entry Grid.Row="0" Grid.ColumnSpan="4" x:Name="numericInput" IsReadOnly="True" TextChanged="numericInput_TextChanged"/>
+            <Button Grid.Row="1" Grid.Column="0" Text="AC" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Clear" x:Name="valueClear"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="-" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Sign" x:Name="valueSign"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="%" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Percent"/>
+            <Button Grid.Row="1" Grid.Column="3" Text="/" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="durch"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="7" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value7"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="8" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value8"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="9" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value9"/>
+            <Button Grid.Row="2" Grid.Column="3" Text="*" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="mal"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="4" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value4"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="5" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value5"/>
+            <Button Grid.Row="3" Grid.Column="2" Text="6" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value6"/>
+            <Button Grid.Row="3" Grid.Column="3" Text="-" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="minus"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="1" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value1"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="2" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value2"/>
+            <Button Grid.Row="4" Grid.Column="2" Text="3" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value3"/>
+            <Button Grid.Row="4" Grid.Column="3" Text="+" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="plus"/>
+
+            <Button Grid.Row="5" Grid.Column="0" Text="0" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="value0"/>
+            <Button Grid.Row="5" Grid.Column="1" Text="." HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Value" x:Name="valueKomma"/>
+            <Button Grid.Row="5" Grid.Column="2" Text="Umsch." HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Change" x:Name="change"/>
+            <Button Grid.Row="5" Grid.Column="3" Text="=" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Result" x:Name="result"/>
+
+            <Button IsVisible="false" Grid.Row="2" Grid.Column="0" Text="log" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="log"/>
+            <Button IsVisible="false" Grid.Row="2" Grid.Column="1" Text="log10" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_LogTen" x:Name="logten"/>
+            <Button IsVisible="false" Grid.Row="2" Grid.Column="2" Text="ln" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_LogNat" x:Name="lognat"/>
+            <Button IsVisible="false" Grid.Row="2" Grid.Column="3" Text="ld" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_LogDual" x:Name="logdual"/>
+
+            <Button IsVisible="false" Grid.Row="3" Grid.Column="0" Text="e" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_ConstE" x:Name="conste"/>
+            <Button IsVisible="false" Grid.Row="3" Grid.Column="1" Text="e^x" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_EupX" x:Name="ehochx"/>
+            <Button IsVisible="false" Grid.Row="3" Grid.Column="2" Text="10^x" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_TenupX" x:Name="tenhochx"/>
+            <Button IsVisible="false" Grid.Row="3" Grid.Column="3" Text="Pi" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_ConstPi" x:Name="constPi"/>
+
+            <Button IsVisible="false" Grid.Row="4" Grid.Column="0" Text="x^y" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="xhochy"/>
+            <Button IsVisible="false" Grid.Row="4" Grid.Column="1" Text="x^2" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Xup2" x:Name="xquadrat"/>
+            <Button IsVisible="false" Grid.Row="4" Grid.Column="2" Text="√" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Wurzel" x:Name="wurzel"/>
+            <Button IsVisible="false" Grid.Row="4" Grid.Column="3" Text="x√y" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="xwurzely"/>
+
+            <Button IsVisible="false" Grid.Row="5" Grid.Column="0" Text="mod" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Operation" x:Name="mod"/>
+            <Button IsVisible="false" Grid.Row="5" Grid.Column="1" Text="x!" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_Fak" x:Name="fak"/>
+
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

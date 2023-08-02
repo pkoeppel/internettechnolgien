@@ -1,0 +1,15 @@
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\bin\Debug\netstandard2.0\Taschenrechner.deps.json
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\bin\Debug\netstandard2.0\Taschenrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\bin\Debug\netstandard2.0\ref\Taschenrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\bin\Debug\netstandard2.0\Taschenrechner.pdb
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.csproj.AssemblyReference.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.AssemblyInfoInputs.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.AssemblyInfo.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.csproj.CoreCompileInputs.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\XamlC.stamp
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\refint\Taschenrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Taschenrechner\Taschenrechner\Taschenrechner\obj\Debug\netstandard2.0\Taschenrechner.pdb

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "t5XFpmimuw0sFO2zDX++XZBSowodAc/zUAsfSNASLNQom4d+O1L8dpU2LZZScHmgNwxTFkPMLwBGl6/nXMQ9EQ==",
+  "success": true,
+  "projectFilePath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\Taschenrechner\\Taschenrechner\\Taschenrechner.iOS\\Taschenrechner.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pasi-\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\pasi-\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\pasi-\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EeYzBXAq2f2hSfREVUxNkph7JRJB6G7pr0sAkFRTyTsjUtRl4UGDd5sL/zwQ+U6HY0n6p27TTHuFlEr/ytyAWA==",
+  "success": true,
+  "projectFilePath": "D:\\DEV_HOME\\Internettechnologien\\source\\repos\\Einheitenumrechner\\Einheitenumrechner\\Einheitenumrechner.iOS\\Einheitenumrechner.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pasi-\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\pasi-\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\pasi-\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
