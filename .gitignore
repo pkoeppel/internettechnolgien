@@ -1,0 +1,6 @@
+﻿################################################################################
+# Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
+################################################################################
+
+/source/repos/Einheitenumrechner/Einheitenumrechner/Einheitenumrechner.Android/obj/Debug/130/android/bin/classes/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class
+/source/repos/Einheitenumrechner/Einheitenumrechner/Einheitenumrechner.Android/obj/Debug/130/android/bin/classes/mono/androidx/core/view/accessibility/AccessibilityManagerCompat_TouchExplorationStateChangeListenerImplementor.class
