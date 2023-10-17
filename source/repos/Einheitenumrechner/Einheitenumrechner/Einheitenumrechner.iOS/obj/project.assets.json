@@ -2,6 +2,32 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "freecurrencyapi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -173,10 +199,12 @@
       },
       "Einheitenumrechner/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Newtonsoft.Json": "13.0.3",
+          "Xamarin.Essentials": "1.7.7",
+          "Xamarin.Forms": "5.0.0.2578",
+          "freecurrencyapi": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Einheitenumrechner.dll": {}
@@ -187,6 +215,32 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "freecurrencyapi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -358,10 +412,12 @@
       },
       "Einheitenumrechner/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Newtonsoft.Json": "13.0.3",
+          "Xamarin.Essentials": "1.7.7",
+          "Xamarin.Forms": "5.0.0.2578",
+          "freecurrencyapi": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Einheitenumrechner.dll": {}
@@ -372,6 +428,32 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-arm64": {
+      "freecurrencyapi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -543,10 +625,12 @@
       },
       "Einheitenumrechner/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Newtonsoft.Json": "13.0.3",
+          "Xamarin.Essentials": "1.7.7",
+          "Xamarin.Forms": "5.0.0.2578",
+          "freecurrencyapi": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Einheitenumrechner.dll": {}
@@ -557,6 +641,32 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "freecurrencyapi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -728,10 +838,12 @@
       },
       "Einheitenumrechner/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Newtonsoft.Json": "13.0.3",
+          "Xamarin.Essentials": "1.7.7",
+          "Xamarin.Forms": "5.0.0.2578",
+          "freecurrencyapi": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Einheitenumrechner.dll": {}
@@ -742,6 +854,32 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "freecurrencyapi/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/freecurrencyapi.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Numerics.Vectors/4.5.0": {
         "type": "package",
         "compile": {
@@ -913,10 +1051,12 @@
       },
       "Einheitenumrechner/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
-          "Xamarin.Essentials": "1.7.0",
-          "Xamarin.Forms": "5.0.0.2196"
+          "Newtonsoft.Json": "13.0.3",
+          "Xamarin.Essentials": "1.7.7",
+          "Xamarin.Forms": "5.0.0.2578",
+          "freecurrencyapi": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Einheitenumrechner.dll": {}
@@ -928,6 +1068,52 @@
     }
   },
   "libraries": {
+    "freecurrencyapi/1.0.0": {
+      "sha512": "gh9XgMIo5eNslQ9C7URBXTviNJmJbrFwK8Cz3vBG65JSeLFHsPtoRARqfSaSceOGp/8y8j3ija6iklFwNPqmhA==",
+      "type": "package",
+      "path": "freecurrencyapi/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "freecurrencyapi-icon.png",
+        "freecurrencyapi.1.0.0.nupkg.sha512",
+        "freecurrencyapi.nuspec",
+        "lib/netstandard2.1/freecurrencyapi.dll",
+        "lib/netstandard2.1/freecurrencyapi.xml"
+      ]
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "System.Numerics.Vectors/4.5.0": {
       "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
       "type": "package",
@@ -1313,5 +1499,35 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ein Downgrade des Pakets \"Xamarin.Essentials\" von 1.7.7 auf 1.7.0 wurde festgestellt. Verweisen Sie direkt aus dem Projekt auf das Paket, um eine andere Version auszuwählen. \r\n Einheitenumrechner.iOS -> Einheitenumrechner -> Xamarin.Essentials (>= 1.7.7) \r\n Einheitenumrechner.iOS -> Xamarin.Essentials (>= 1.7.0)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Ein Downgrade des Pakets \"Xamarin.Forms\" von 5.0.0.2578 auf 5.0.0.2196 wurde festgestellt. Verweisen Sie direkt aus dem Projekt auf das Paket, um eine andere Version auszuwählen. \r\n Einheitenumrechner.iOS -> Einheitenumrechner -> Xamarin.Forms (>= 5.0.0.2578) \r\n Einheitenumrechner.iOS -> Xamarin.Forms (>= 5.0.0.2196)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

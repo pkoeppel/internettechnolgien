@@ -11,9 +11,9 @@ namespace HelloWorldProject
         /// create member variables of longitude and latitude
         double loc_lon;
         double loc_lat;
-        /// create member variables of Berlin
-        double loc_lon_Berlin;
-        double loc_lat_Berlin;
+        /// create member variables of Glauchau
+        double loc_lon_Glauchau;
+        double loc_lat_Glauchau;
 
         public MapsPage()
         {
@@ -21,8 +21,8 @@ namespace HelloWorldProject
             /// initialize all member variables
             loc_lon = 0;
             loc_lat = 0;
-            loc_lon_Berlin = 13.3777;
-            loc_lat_Berlin = 52.5162;
+            loc_lon_Glauchau = 12.5452;
+            loc_lat_Glauchau = 50.8188;
         }
 
         async void openSelLoc_Clicked(object sender, EventArgs e)
@@ -55,15 +55,15 @@ namespace HelloWorldProject
             latitude.Text = loc_lat.ToString();
         }
 
-        private void locOfBerlin_Clicked(object sender, EventArgs e)
+        private void locOfGlauchau_Clicked(object sender, EventArgs e)
         {
-            /// change member variables of longitude and latitude to Berlin
-            loc_lon = loc_lon_Berlin;
-            loc_lat = loc_lat_Berlin;
+            /// change member variables of longitude and latitude to Glauchau
+            loc_lon = loc_lon_Glauchau;
+            loc_lat = loc_lat_Glauchau;
 
-            /// fill entries with member variables of Berlin
-            longitude.Text = loc_lon_Berlin.ToString();
-            latitude.Text = loc_lat_Berlin.ToString();
+            /// fill entries with member variables of Glauchau
+            longitude.Text = loc_lon_Glauchau.ToString();
+            latitude.Text = loc_lat_Glauchau.ToString();
         }
 
         private async void getCurrentLocationAsync()
@@ -75,26 +75,26 @@ namespace HelloWorldProject
             loc_lat = curLoc.Latitude;
         }
 
-        private async void dirBerlinCur_Clicked(object sender, EventArgs e)
+        private async void dirGlauchauCur_Clicked(object sender, EventArgs e)
         {
             getCurrentLocationAsync();
-            /// create location of Berlin longitude and latitude
-            var location = new Location(loc_lat_Berlin, loc_lon_Berlin);
+            /// create location of Glauchau longitude and latitude
+            var location = new Location(loc_lat_Glauchau, loc_lon_Glauchau);
             /// initial map options with the name and mode (e.g. by car, bike, ...)
             var mapLaunch = new MapLaunchOptions();
-            mapLaunch.Name = "Berlin";
+            mapLaunch.Name = "Glauchau";
             mapLaunch.NavigationMode = NavigationMode.Default;
-            /// open map with the navigation from current place to Berlin
+            /// open map with the navigation from current place to Glauchau
             await Map.OpenAsync(location, mapLaunch);
 
         }
 
-        private async void showBerlin_Clicked(object sender, EventArgs e)
+        private async void showGlauchau_Clicked(object sender, EventArgs e)
         {
-            /// create a placemark for Berlin with the country name and the locality
+            /// create a placemark for Glauchau with the country name and the locality
             Placemark placemark = new Placemark();
             placemark.CountryName = "Germany";
-            placemark.Locality = "Berlin";
+            placemark.Locality = "Glauchau";
             /// open placement in map
             await placemark.OpenMapsAsync();
         }

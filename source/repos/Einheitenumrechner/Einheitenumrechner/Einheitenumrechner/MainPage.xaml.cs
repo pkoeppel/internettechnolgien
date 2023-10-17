@@ -1,31 +1,36 @@
-﻿using System;
+﻿using freecurrencyapi;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Einheitenumrechner
 {
     public partial class MainPage : ContentPage
     {
-        List<String> currencyList, lenghtList, weightList, speedList, volumeList;
+        private List<String> currencyList, lenghtList, weightList, speedList, volumeList;
+        private readonly JObject responseObject;
         public MainPage()
         {
             InitializeComponent();
+            
+            Freecurrencyapi fx = new Freecurrencyapi("fca_live_nB19c6lLttd1cbMyHJ1A1uXMqRje1Fbi7oxzhwIC");
+            String currencyRate = fx.Latest();
+            responseObject = JsonConvert.DeserializeObject<ApiResponse>(currencyRate).ApiData;
+            
             convert_unit.Items.Add("Währung");
             convert_unit.Items.Add("Länge");
             convert_unit.Items.Add("Gewicht");
             convert_unit.Items.Add("Speicherplatz");
             convert_unit.Items.Add("Geschwindigkeit");
         }
-        private void unit_SelectedIndexChanged(object sender, EventArgs e)
+        private void Unit_SelectedIndexChanged(object sender, EventArgs e)
         {
             input_value.Text = "";
             output_value.Text = "";
         }
-        private void Convert_unit_SelectedIndexChanged(object sender, EventArgs e)
+        private void ConvertUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
             input_unit.Items.Clear();
             output_unit.Items.Clear();
@@ -123,6 +128,7 @@ namespace Einheitenumrechner
             lenghtList.Add("µm");
             lenghtList.Add("mm");
             lenghtList.Add("cm");
+            lenghtList.Add("dm");
             lenghtList.Add("m");
             lenghtList.Add("km");
             lenghtList.Add("in");
@@ -138,17 +144,23 @@ namespace Einheitenumrechner
         private void SetUpCurrency()
         {
             currencyList = new List<String>();
-            currencyList.Add("Amerikanischer Dollar");
             currencyList.Add("Euro");
-            currencyList.Add("Pfund");
-            currencyList.Add("Russischer Rubel");
-            currencyList.Add("Bitcoin");
+            currencyList.Add("US Dollar");
+            currencyList.Add("Yen");
             currencyList.Add("Tschechische Krone");
             currencyList.Add("Dänische Krone");
+            currencyList.Add("Pfund");
+            currencyList.Add("Zloty");
             currencyList.Add("Schwedische Krone");
+            currencyList.Add("Franken");
+            currencyList.Add("Rubel");
+            currencyList.Add("Lira");
+            currencyList.Add("Real");
+            currencyList.Add("Yuan");
+            currencyList.Add("Rupee");
             currencyList.Add("Won");
             currencyList.Add("Peso");
-            currencyList.Add("Yen");
+            currencyList.Add("Bitcoin");
             currencyList.Add("Mark");
             foreach (String currency in currencyList)
             {
@@ -164,22 +176,23 @@ namespace Einheitenumrechner
             String result;
             try
             {
+                double value = Convert.ToDouble(inputValue);
                 switch (convert_unit.SelectedIndex)
                 {
                     case 0:
-                        result = ConvertCurrency(Convert.ToDouble(inputValue));
+                        result = ConvertCurrency(value);
                         break;
                     case 1:
-                        result = ConvertLenghtUnit(Convert.ToDouble(inputValue));
+                        result = ConvertLenght(value);
                         break;
                     case 2:
-                        result = ConvertWeight(Convert.ToDouble(inputValue));
+                        result = ConvertWeight(value);
                         break;
                     case 3:
-                        result = ConvertVolume(Convert.ToDouble(inputValue));  
+                        result = ConvertVolume(value);  
                         break;
                     case 4:
-                        result = ConvertSpeed(Convert.ToDouble(inputValue));
+                        result = ConvertSpeed(value);
                         break;
                     default:
                         result = "";
@@ -191,434 +204,483 @@ namespace Einheitenumrechner
                 await DisplayAlert("Warnung", "Deine Eingabe war fehlerhaft! Bitte versuche es erneut!", "OK");
             }
         }
-        private String ConvertSpeed(double inputValueFormated)
+        private String ConvertSpeed(double input)
         {
-            double standardValue, outputValueFormated;
+            double standard, output;
             switch (input_unit.SelectedIndex)
             {
                 case 0:
-                    standardValue = inputValueFormated * 0.000001;
+                    standard = input * 0.000001;
                     break;
                 case 1:
-                    standardValue = inputValueFormated * 0.001;
+                    standard = input * 0.001;
                     break;
                 case 2:
-                    standardValue = inputValueFormated * 1;
+                    standard = input * 1;
                     break;
                 case 3:
-                    standardValue = inputValueFormated * 1000;
+                    standard = input * 1000;
                     break;
                 case 4:
-                    standardValue = inputValueFormated * 0.278;
+                    standard = input * 0.278;
                     break;
                 case 5:
-                    standardValue = inputValueFormated * 0.44704;
+                    standard = input * 0.44704;
                     break;
                 default:
-                    standardValue = 0;
+                    standard = 0;
                     break;
             }
             switch (output_unit.SelectedIndex)
             {
                 case 0:
-                    outputValueFormated = standardValue * 1000000;
+                    output = standard * 1000000;
                     break;
                 case 1:
-                    outputValueFormated = standardValue * 1000;
+                    output = standard * 1000;
                     break;
                 case 2:
-                    outputValueFormated = standardValue * 1;
+                    output = standard * 1;
                     break;
                 case 3:
-                    outputValueFormated = standardValue * 0.001;
+                    output = standard * 0.001;
                     break;
                 case 4:
-                    outputValueFormated = standardValue * 3.6;
+                    output = standard * 3.6;
                     break;
                 case 5:
-                    outputValueFormated = standardValue * 2.2369362921;
+                    output = standard * 2.2369362921;
                     break;
                 default:
-                    outputValueFormated = 0;
+                    output = 0;
                     break;
             }
-            return string.Format("{0}", outputValueFormated);
+            return string.Format("{0}", output);
         }
-        private String ConvertVolume(double inputValueFormated)
+        private String ConvertVolume(double input)
         {
-            double standardValue, outputValueFormated;
+            double standard, output;
             switch (input_unit.SelectedIndex)
             {
                 case 0:
-                    standardValue = inputValueFormated * 0.125;
+                    standard = input * 0.125;
                     break;
                 case 1:
-                    standardValue = inputValueFormated * 1;
+                    standard = input * 1;
                     break;
                 case 2:
-                    standardValue = inputValueFormated * Math.Pow(10,-3);
+                    standard = input * Math.Pow(10,-3);
                     break;
                 case 3:
-                    standardValue = inputValueFormated * Math.Pow(10, -6);
+                    standard = input * Math.Pow(10, -6);
                     break;
                 case 4:
-                    standardValue = inputValueFormated * Math.Pow(10, -9);
+                    standard = input * Math.Pow(10, -9);
                     break;
                 case 5:
-                    standardValue = inputValueFormated * Math.Pow(10, -12);
+                    standard = input * Math.Pow(10, -12);
                     break;
                 case 6:
-                    standardValue = inputValueFormated * Math.Pow(10, -15);
+                    standard = input * Math.Pow(10, -15);
                     break;
                 case 7:
-                    standardValue = inputValueFormated * Math.Pow(10, -18);
+                    standard = input * Math.Pow(10, -18);
                     break;
                 case 8:
-                    standardValue = inputValueFormated * Math.Pow(10, -21);
+                    standard = input * Math.Pow(10, -21);
                     break;
                 case 9:
-                    standardValue = inputValueFormated * Math.Pow(10, -24);
+                    standard = input * Math.Pow(10, -24);
                     break;
                 case 10:
-                    standardValue = inputValueFormated * Math.Pow(2, -10);
+                    standard = input * Math.Pow(2, -10);
                     break;
                 case 11:
-                    standardValue = inputValueFormated * Math.Pow(2, -20);
+                    standard = input * Math.Pow(2, -20);
                     break;
                 case 12:
-                    standardValue = inputValueFormated * Math.Pow(2, -30);
+                    standard = input * Math.Pow(2, -30);
                     break;
                 case 13:
-                    standardValue = inputValueFormated * Math.Pow(2, -40);
+                    standard = input * Math.Pow(2, -40);
                     break;
                 case 14:
-                    standardValue = inputValueFormated * Math.Pow(2, -50);
+                    standard = input * Math.Pow(2, -50);
                     break;
                 case 15:
-                    standardValue = inputValueFormated * Math.Pow(2, -60);
+                    standard = input * Math.Pow(2, -60);
                     break;
                 case 16:
-                    standardValue = inputValueFormated * Math.Pow(2, -70);
+                    standard = input * Math.Pow(2, -70);
                     break;
                 case 17:
-                    standardValue = inputValueFormated * Math.Pow(2, -80);
+                    standard = input * Math.Pow(2, -80);
                     break;
                 default:
-                    standardValue = 0;
+                    standard = 0;
                     break;
             }
             switch (output_unit.SelectedIndex)
             {
                 case 0:
-                    outputValueFormated = standardValue * 8;
+                    output = standard * 8;
                     break;
                 case 1:
-                    outputValueFormated = standardValue * 1;
+                    output = standard * 1;
                     break;
                 case 2:
-                    outputValueFormated = standardValue * Math.Pow(10, 3);
+                    output = standard * Math.Pow(10, 3);
                     break;
                 case 3:
-                    outputValueFormated = standardValue * Math.Pow(10, 6);
+                    output = standard * Math.Pow(10, 6);
                     break;
                 case 4:
-                    outputValueFormated = standardValue * Math.Pow(10, 9);
+                    output = standard * Math.Pow(10, 9);
                     break;
                 case 5:
-                    outputValueFormated = standardValue * Math.Pow(10, 12);
+                    output = standard * Math.Pow(10, 12);
                     break;
                 case 6:
-                    outputValueFormated = standardValue * Math.Pow(10, 15);
+                    output = standard * Math.Pow(10, 15);
                     break;
                 case 7:
-                    outputValueFormated = standardValue * Math.Pow(10, 18);
+                    output = standard * Math.Pow(10, 18);
                     break;
                 case 8:
-                    outputValueFormated = standardValue * Math.Pow(10, 21);
+                    output = standard * Math.Pow(10, 21);
                     break;
                 case 9:
-                    outputValueFormated = standardValue * Math.Pow(10, 24);
+                    output = standard * Math.Pow(10, 24);
                     break;
                 case 10:
-                    outputValueFormated = standardValue * Math.Pow(2, 10);
+                    output = standard * Math.Pow(2, 10);
                     break;
                 case 11:
-                    outputValueFormated = standardValue * Math.Pow(2, 20);
+                    output = standard * Math.Pow(2, 20);
                     break;
                 case 12:
-                    outputValueFormated = standardValue * Math.Pow(2,30);
+                    output = standard * Math.Pow(2,30);
                     break;
                 case 13:
-                    outputValueFormated = standardValue * Math.Pow(2, 40);
+                    output = standard * Math.Pow(2, 40);
                     break;
                 case 14:
-                    outputValueFormated = standardValue * Math.Pow(2, 50);
+                    output = standard * Math.Pow(2, 50);
                     break;
                 case 15:
-                    outputValueFormated = standardValue * Math.Pow(2, 60);
+                    output = standard * Math.Pow(2, 60);
                     break;
                 case 16:
-                    outputValueFormated = standardValue * Math.Pow(2, 70);
+                    output = standard * Math.Pow(2, 70);
                     break;
                 case 17:
-                    outputValueFormated = standardValue * Math.Pow(2, 80);
+                    output = standard * Math.Pow(2, 80);
                     break;
                 default:
-                    outputValueFormated = 0;
+                    output = 0;
                     break;
             }
-            return string.Format("{0}", outputValueFormated);
+            return string.Format("{0}", output);
         }
-        private String ConvertWeight(double inputValueFormated)
+        private String ConvertWeight(double input)
         {
-            double standardValue, outputValueFormated;
+            double standard, output;
             switch (input_unit.SelectedIndex)
             {
                 case 0:
-                    standardValue = inputValueFormated * 1.6605654724 * Math.Pow(10,-15);
+                    standard = input * 1.6605654724 * Math.Pow(10,-15);
                     break;
                 case 1:
-                    standardValue = inputValueFormated * 0.000000001;
+                    standard = input * 0.000000001;
                     break;
                 case 2:
-                    standardValue = inputValueFormated * 0.001;
+                    standard = input * 0.001;
                     break;
                 case 3:
-                    standardValue = inputValueFormated * 1;
+                    standard = input * 1;
                     break;
                 case 4:
-                    standardValue = inputValueFormated * 10;
+                    standard = input * 10;
                     break;
                 case 5:
-                    standardValue = inputValueFormated * 100;
+                    standard = input * 100;
                     break;
                 case 6:
-                    standardValue = inputValueFormated * 1000;
+                    standard = input * 1000;
                     break;
                 case 7:
-                    standardValue = inputValueFormated * 1.019716005 * Math.Pow(10,5);
+                    standard = input * 1.019716005 * Math.Pow(10,5);
                     break;
                 case 8:
-                    standardValue = inputValueFormated * 1000000;
+                    standard = input * 1000000;
                     break;
                 case 9:
-                    standardValue = inputValueFormated * 453.59237;
+                    standard = input * 453.59237;
                     break;
                 default:
-                    standardValue = 0;
+                    standard = 0;
                     break;
             }
             switch (output_unit.SelectedIndex)
             {
                 case 0:
-                    outputValueFormated = standardValue * 6.022045 * Math.Pow(10, 23);
+                    output = standard * 6.022045 * Math.Pow(10, 23);
                     break;
                 case 1:
-                    outputValueFormated = standardValue * 1000000000;
+                    output = standard * 1000000000;
                     break;
                 case 2:
-                    outputValueFormated = standardValue * 1000;
+                    output = standard * 1000;
                     break;
                 case 3:
-                    outputValueFormated = standardValue * 1;
+                    output = standard * 1;
                     break;
                 case 4:
-                    outputValueFormated = standardValue * 0.1;
+                    output = standard * 0.1;
                     break;
                 case 5:
-                    outputValueFormated = standardValue * 0.01;
+                    output = standard * 0.01;
                     break;
                 case 6:
-                    outputValueFormated = standardValue * 0.001;
+                    output = standard * 0.001;
                     break;
                 case 7:
-                    outputValueFormated = standardValue * 0.0000098067;
+                    output = standard * 0.0000098067;
                     break;
                 case 8:
-                    outputValueFormated = standardValue * 0.000001;
+                    output = standard * 0.000001;
                     break;
                 case 9:
-                    outputValueFormated = standardValue * 0.0022046226;
+                    output = standard * 0.0022046226;
                     break;
                 default:
-                    outputValueFormated = 0;
+                    output = 0;
                     break;
             }
-            return string.Format("{0}", outputValueFormated);
+            return string.Format("{0}", output);
         }
-        private String ConvertLenghtUnit(double inputValueFormated)
+        private String ConvertLenght(double input)
         {
-            double standardValue, outputValueFormated;
+            double standard, output;
             switch(input_unit.SelectedIndex)
             {
                 case 0:
-                    standardValue = inputValueFormated * 0.0000000001;
+                    standard = input * 0.0000000001;
                     break;
                 case 1:
-                    standardValue = inputValueFormated * 0.000000001;
+                    standard = input * 0.000000001;
                     break;
                 case 2:
-                    standardValue = inputValueFormated * 0.000001;
+                    standard = input * 0.000001;
                     break;
                 case 3:
-                    standardValue = inputValueFormated * 0.001;
+                    standard = input * 0.001;
                     break;
                 case 4:
-                    standardValue = inputValueFormated * 0.01;
+                    standard = input * 0.01;
                     break;
                 case 5:
-                    standardValue = inputValueFormated * 1;
+                    standard = input * 0.1;
                     break;
                 case 6:
-                    standardValue = inputValueFormated * 1000;
+                    standard = input * 1;
                     break;
                 case 7:
-                    standardValue = inputValueFormated * 0.0254;
+                    standard = input * 1000;
                     break;
                 case 8:
-                    standardValue = inputValueFormated * 0.3048;
+                    standard = input * 0.0254;
                     break;
                 case 9:
-                    standardValue = inputValueFormated * 0.9144;
+                    standard = input * 0.3048;
                     break;
                 case 10:
-                    standardValue = inputValueFormated * 1609.34;
+                    standard = input * 0.9144;
+                    break;
+                case 11:
+                    standard = input * 1609.34;
                     break;
                 default:
-                    standardValue = 0;
+                    standard = 0;
                     break;
             }
             switch (output_unit.SelectedIndex)
             {
                 case 0:
-                    outputValueFormated = standardValue * 10000000000;
+                    output = standard * 10000000000;
                     break;
                 case 1:
-                    outputValueFormated = standardValue * 1000000000;
+                    output = standard * 1000000000;
                     break;
                 case 2:
-                    outputValueFormated = standardValue * 1000000;
+                    output = standard * 1000000;
                     break;
                 case 3:
-                    outputValueFormated = standardValue * 1000;
+                    output = standard * 1000;
                     break;
                 case 4:
-                    outputValueFormated = standardValue * 100;
+                    output = standard * 100;
                     break;
                 case 5:
-                    outputValueFormated = standardValue * 1;
+                    output = standard * 10;
                     break;
                 case 6:
-                    outputValueFormated = standardValue * 0.001;
+                    output = standard * 1;
                     break;
                 case 7:
-                    outputValueFormated = standardValue * 39.3701;
+                    output = standard * 0.001;
                     break;
                 case 8:
-                    outputValueFormated = standardValue * 3.28084;
+                    output = standard * 39.3701;
                     break;
                 case 9:
-                    outputValueFormated = standardValue * 1.09361;
+                    output = standard * 3.28084;
                     break;
                 case 10:
-                    outputValueFormated = standardValue * 0.000621371;
+                    output = standard * 1.09361;
+                    break;
+                case 11:
+                    output = standard * 0.000621371;
                     break;
                 default:
-                    outputValueFormated = 0;
+                    output = 0;
                     break;
             }
-            return string.Format("{0}", outputValueFormated);
+            return string.Format("{0}", output);
         }
-        private String ConvertCurrency(double inputValueFormated)
+        private String ConvertCurrency(double input)
         {
-            double standardValue, outputValueFormated;
+            double standard, output;
+            
             //Umwandeln von Eingangseinheit in Standardeinheit (Dollar)
             switch (input_unit.SelectedIndex)
             {
                 case 0:
-                    standardValue = inputValueFormated * 1;
+                    standard = input * 1 / (double) responseObject.GetValue("EUR");
                     break;
                 case 1:
-                    standardValue = inputValueFormated * 1.0997;
+                    standard = input * 1 / (double) responseObject.GetValue("USD");
                     break;
                 case 2:
-                    standardValue = inputValueFormated * 1.2834;
+                    standard = input * 1 / (double) responseObject.GetValue("JPY");
                     break;
                 case 3:
-                    standardValue = inputValueFormated * 0.0109;
+                    standard = input * 1 / (double) responseObject.GetValue("CZK");
                     break;
                 case 4:
-                    standardValue = inputValueFormated * 29226.7233;
+                    standard = input * 1 / (double) responseObject.GetValue("DKK");
                     break;
                 case 5:
-                    standardValue = inputValueFormated * 0.046;
+                    standard = input * 1 / (double) responseObject.GetValue("GBP");
                     break;
                 case 6:
-                    standardValue = inputValueFormated * 0.1476;
+                    standard = input * 1 / (double) responseObject.GetValue("PLN");
                     break;
                 case 7:
-                    standardValue = inputValueFormated * 0.095;
+                    standard = input * 1 / (double) responseObject.GetValue("SEK");
                     break;
                 case 8:
-                    standardValue = inputValueFormated * 0.0008;
+                    standard = input * 1 / (double) responseObject.GetValue("CHF");
                     break;
                 case 9:
-                    standardValue = inputValueFormated * 0.0597;
+                    standard = input * 1 / (double) responseObject.GetValue("RUB");
                     break;
                 case 10:
-                    standardValue = inputValueFormated * 0.007;
+                    standard = input * 1 / (double) responseObject.GetValue("TRY");
                     break;
                 case 11:
-                    standardValue = inputValueFormated * 0.56;
+                    standard = input * 1 / (double) responseObject.GetValue("BRL");
+                    break;
+                case 12:
+                    standard = input * 1 / (double) responseObject.GetValue("CNY");
+                    break;
+                case 13:
+                    standard = input * 1 / (double) responseObject.GetValue("INR");
+                    break;
+                case 14:
+                    standard = input * 1 / (double) responseObject.GetValue("KRW");
+                    break;
+                case 15:
+                    standard = input * 1 / (double) responseObject.GetValue("MXN");
+                    break;
+                case 16:
+                    standard = input * 1 / 3.4215 * Math.Pow(10, -5);
+                    break;
+                case 17:
+                    standard = input * 1 / 1.78;
                     break;
                 default:
-                    standardValue = 0;
+                    standard = 0;
                     break;
             }
             //Umwandeln von Standardeinheit (Dollar) in Ausgangseinheit
             switch (output_unit.SelectedIndex)
             {
                 case 0:
-                    outputValueFormated = standardValue * 1;
+                    output = standard *  (double)responseObject.GetValue("EUR");
                     break;
                 case 1:
-                    outputValueFormated = standardValue * 0.9093;
+                    output = standard *  (double)responseObject.GetValue("USD");
                     break;
                 case 2:
-                    outputValueFormated = standardValue * 0.7792;
+                    output = standard *  (double)responseObject.GetValue("JPY");
                     break;
                 case 3:
-                    outputValueFormated = standardValue * 91.6504;
+                    output = standard *  (double)responseObject.GetValue("CZK");
                     break;
                 case 4:
-                    outputValueFormated = standardValue * 3.4215 * Math.Pow(10,-5);
+                    output = standard *  (double)responseObject.GetValue("DKK");
                     break;
                 case 5:
-                    outputValueFormated = standardValue * 21.7216;
+                    output = standard *  (double)responseObject.GetValue("GBP");
                     break;
                 case 6:
-                    outputValueFormated = standardValue * 6.7761;
+                    output = standard *  (double)responseObject.GetValue("PLN");
                     break;
                 case 7:
-                    outputValueFormated = standardValue * 10.5242;
+                    output = standard *  (double)responseObject.GetValue("SEK");
                     break;
                 case 8:
-                    outputValueFormated = standardValue * 1278.2812;
+                    output = standard *  (double)responseObject.GetValue("CHF");
                     break;
                 case 9:
-                    outputValueFormated = standardValue * 16.7532;
+                    output = standard *  (double)responseObject.GetValue("RUB");
                     break;
                 case 10:
-                    outputValueFormated = standardValue * 142.661;
+                    output = standard *  (double)responseObject.GetValue("TRY");
                     break;
                 case 11:
-                    outputValueFormated = standardValue * 1.78;
+                    output = standard *  (double)responseObject.GetValue("BRL");
+                    break;
+                case 12:
+                    output = standard *  (double)responseObject.GetValue("CNY");
+                    break;
+                case 13:
+                    output = standard *  (double)responseObject.GetValue("INR");
+                    break;
+                case 14:
+                    output = standard *  (double)responseObject.GetValue("KRW");
+                    break;
+                case 15:
+                    output = standard *  (double)responseObject.GetValue("MXN");
+                    break;
+                case 16:
+                    output = standard *  3.4215 * Math.Pow(10, -5);
+                    break;
+                case 17:
+                    output = standard *  1.78;
                     break;
                 default:
-                    outputValueFormated = 0;
+                    output = 0;
                     break;
             }
-            return string.Format("{0:0.00}", outputValueFormated);
+            return string.Format("{0:0.00}", output);
         }
     }
+    class ApiResponse
+    {
+        public JObject ApiData { get; set; }
+    }
+
+    
 }

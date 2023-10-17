@@ -1,0 +1,15 @@
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\bin\Debug\netstandard2.1\Einheitenumrechner.deps.json
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\bin\Debug\netstandard2.1\Einheitenumrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\bin\Debug\netstandard2.1\ref\Einheitenumrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\bin\Debug\netstandard2.1\Einheitenumrechner.pdb
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.csproj.AssemblyReference.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.GeneratedMSBuildEditorConfig.editorconfig
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\App.xaml.g.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\MainPage.xaml.g.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.AssemblyInfoInputs.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.AssemblyInfo.cs
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.csproj.CoreCompileInputs.cache
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\XamlC.stamp
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\refint\Einheitenumrechner.dll
+D:\DEV_HOME\Internettechnologien\source\repos\Einheitenumrechner\Einheitenumrechner\Einheitenumrechner\obj\Debug\netstandard2.1\Einheitenumrechner.pdb

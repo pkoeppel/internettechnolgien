@@ -6,11 +6,11 @@
         <Label Text="Welcome to the maps page!"
                 HorizontalOptions="CenterAndExpand" />
         <Button x:Name="currLocation" Text="Get your current location" Clicked="currLocation_Clicked"/>
-        <Button x:Name="locOfBerlin" Text="Get the location of Berlin" Clicked="locOfBerlin_Clicked"/>
+        <Button x:Name="locOfGlauchau" Text="Get the location of Glauchau" Clicked="locOfGlauchau_Clicked"/>
         <Entry x:Name="longitude" Placeholder="longitude"/>
         <Entry x:Name="latitude" Placeholder="latitude"/>
         <Button x:Name="openSelectedLocation" Text="Open map" Clicked="openSelLoc_Clicked"/>
-        <Button x:Name="showBerlin" Text="Show Berlin" Clicked="showBerlin_Clicked"/>
-        <Button x:Name="dirBerlinCur" Text="Show direction between you and Berlin" Clicked="dirBerlinCur_Clicked"/>
+        <Button x:Name="showGlauchau" Text="Show Glauchau" Clicked="showGlauchau_Clicked"/>
+        <Button x:Name="dirGlauchauCur" Text="Show direction between you and Glauchau" Clicked="dirGlauchauCur_Clicked"/>
     </StackLayout>
 </ContentPage>

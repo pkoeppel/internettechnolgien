@@ -5,11 +5,11 @@
 
     <StackLayout>
         <Label Text="Einheitenumrechner"/>
-        <Picker x:Name="convert_unit" Title="Umrechnen von ..." SelectedIndexChanged="Convert_unit_SelectedIndexChanged"/>
+        <Picker x:Name="convert_unit" Title="Umrechnen von ..." SelectedIndexChanged="ConvertUnit_SelectedIndexChanged"/>
         <Label Text="von: "/>
-        <Picker x:Name="input_unit" Title="Einheit" SelectedIndexChanged="unit_SelectedIndexChanged"/>
+        <Picker x:Name="input_unit" Title="Einheit" SelectedIndexChanged="Unit_SelectedIndexChanged"/>
         <Label Text="in: "/>
-        <Picker x:Name="output_unit" Title="Einheit" SelectedIndexChanged="unit_SelectedIndexChanged"/>
+        <Picker x:Name="output_unit" Title="Einheit" SelectedIndexChanged="Unit_SelectedIndexChanged"/>
         <Entry x:Name="input_value" Placeholder="0.00" Keyboard="Numeric"/>
         <Button Text="Umrechnen" Clicked="Button_Convert_Clicked"/>
         <Entry x:Name="output_value" IsReadOnly="true" Placeholder="0.0"/>

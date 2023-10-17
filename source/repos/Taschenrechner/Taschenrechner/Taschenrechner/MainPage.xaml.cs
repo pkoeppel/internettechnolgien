@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Taschenrechner
 {
     public partial class MainPage : ContentPage
     {
-        String operation;
-        double firstValue;
-        Boolean operationSet;
-        Boolean resetEntry;
-        Boolean specialVisible;
+        private String operation;
+        private double firstValue;
+        private Boolean operationSet, resetEntry, specialVisible;
 
         public MainPage()
         {
@@ -61,7 +54,7 @@ namespace Taschenrechner
             fak.IsVisible = false;
             specialVisible = false;
         }
-        private void Calculate()
+        private async void Calculate()
         {
             //zweiten Operanten holen
             double secondValue = GetValue();
@@ -79,7 +72,15 @@ namespace Taschenrechner
                     result = firstValue * secondValue;
                     break;
                 case "/":
-                    result = firstValue / secondValue;
+                    if (secondValue != 0)
+                    {
+                        result = firstValue / secondValue;
+                    }
+                    else
+                    {
+                        result = 0;
+                        await DisplayAlert("Warnung!", "Division durch 0 nicht möglich", "OK");
+                    }
                     break;
                 case "x^y":
                     result = Math.Pow(firstValue, secondValue);
@@ -169,7 +170,7 @@ namespace Taschenrechner
             //wenn neuer Wert eine Null ist prüfen ob an erster Stelle
             else if (newValue.Equals("0"))
             {
-                if (oldValue != "" && oldValue != null)
+                if (oldValue != "0")
                 {
                     numericInput.Text = oldValue + newValue;
                 }
@@ -300,7 +301,7 @@ namespace Taschenrechner
             numericInput.Text = Math.PI.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_EupX(object sender, EventArgs e)
+        private void Button_Clicked_EUpX(object sender, EventArgs e)
         {
             //Konstante e hoch der einegebenen Zahl
             double x= GetValue();
@@ -308,7 +309,7 @@ namespace Taschenrechner
             numericInput.Text = result.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_TenupX(object sender, EventArgs e)
+        private void Button_Clicked_TenUpX(object sender, EventArgs e)
         {
             //10 hoch der eingegebenen Zahl
             double x = GetValue();
@@ -316,7 +317,7 @@ namespace Taschenrechner
             numericInput.Text = result.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_Xup2(object sender, EventArgs e)
+        private void Button_Clicked_XUpTwo(object sender, EventArgs e)
         {
             //eingegebene Zahl hoch 2
             double x = GetValue();
@@ -324,7 +325,7 @@ namespace Taschenrechner
             numericInput.Text = result.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_Wurzel(object sender, EventArgs e)
+        private void Button_Clicked_Root(object sender, EventArgs e)
         {
             //Quadratwurzel gezogen aus der eingegebenen Zahl
             double x = GetValue();
@@ -338,7 +339,7 @@ namespace Taschenrechner
             numericInput.Text = Math.E.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_LogTen(object sender, EventArgs e)
+        private void Button_Clicked_LogBaseTen(object sender, EventArgs e)
         {
             //Logarithmus zur Basis 10 der eingegebenen Zahl
             double x = GetValue();
@@ -362,7 +363,7 @@ namespace Taschenrechner
             numericInput.Text = result.ToString();
             MainVisibility();
         }
-        private void Button_Clicked_Fak(object sender, EventArgs e)
+        private void Button_Clicked_Faculty(object sender, EventArgs e)
         {
             //Fakultät der eingegebenen Zahl
             double x = GetValue();
@@ -374,7 +375,22 @@ namespace Taschenrechner
             numericInput.Text = result.ToString();
             MainVisibility();
         }
-        private void numericInput_TextChanged(object sender, TextChangedEventArgs e)
+        private void Button_Clicked_Delete(object sender, EventArgs e)
+        {
+            if (numericInput.Text != "")
+            {
+                String value = numericInput.Text;
+                if (value == "0.")
+                {
+                    numericInput.Text = "";
+                }
+                else
+                {
+                    numericInput.Text = value.Remove(value.Length - 1);
+                }
+            }
+        }
+        private void NumericInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             //zum Leeren des Textfeldes umwandeln des Buttons
             valueClear.Text = "CC";

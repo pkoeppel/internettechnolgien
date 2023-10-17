@@ -1,0 +1,10 @@
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\bin\Debug\InstagramHelper.exe.config
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\bin\Debug\InstagramHelper.exe
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\bin\Debug\InstagramHelper.pdb
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.csproj.AssemblyReference.cache
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.Form1.resources
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.Properties.Resources.resources
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.csproj.GenerateResource.cache
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.csproj.CoreCompileInputs.cache
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.exe
+D:\DEV_HOME\Internettechnologien\source\repos\InstagramHelper\InstagramHelper\obj\Debug\InstagramHelper.pdb
