@@ -9,7 +9,7 @@ namespace HelloWorldProject
         public App()
         {
             InitializeComponent();
-
+            ///open MainPage
             MainPage = new NavigationPage(new MainPage());
         }
 

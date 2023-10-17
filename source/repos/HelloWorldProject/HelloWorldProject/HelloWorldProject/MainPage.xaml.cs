@@ -17,10 +17,12 @@ namespace HelloWorldProject
 
         private void Button_Clicked(object sender, EventArgs e)
         {
+            ///shows greeting at the top with the inputed string
             string username = nameEntry.Text;
             string greeting = "Hello " + username;
             greetingName.Text = greeting;
         }
+        ///Buttons to navigate to the other parts
         private void btCameraPage_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new CameraPage());
