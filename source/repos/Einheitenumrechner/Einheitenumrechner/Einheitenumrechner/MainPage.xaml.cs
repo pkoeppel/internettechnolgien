@@ -14,22 +14,29 @@ namespace Einheitenumrechner
         public MainPage()
         {
             InitializeComponent();
-            
+            //connect to an API to get the latest currency rate
             Freecurrencyapi fx = new Freecurrencyapi("fca_live_nB19c6lLttd1cbMyHJ1A1uXMqRje1Fbi7oxzhwIC");
             String currencyRate = fx.Latest();
             responseObject = JsonConvert.DeserializeObject<ApiResponse>(currencyRate).ApiData;
             
+            //all categories
             convert_unit.Items.Add("Währung");
             convert_unit.Items.Add("Länge");
             convert_unit.Items.Add("Gewicht");
             convert_unit.Items.Add("Speicherplatz");
             convert_unit.Items.Add("Geschwindigkeit");
         }
+
+        //if unit changed -> clear all entries
         private void Unit_SelectedIndexChanged(object sender, EventArgs e)
         {
             input_value.Text = "";
             output_value.Text = "";
         }
+
+        //of categorie changed
+        //-> Clear all items
+        //-> call units of the selected categorie
         private void ConvertUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
             input_unit.Items.Clear();
@@ -59,6 +66,7 @@ namespace Einheitenumrechner
             input_unit.SelectedIndex = 0;
             output_unit.SelectedIndex = 1;
         }
+        // fill units for speed
         private void SetUpSpeed()
         {
             speedList = new List<String>();
@@ -74,6 +82,7 @@ namespace Einheitenumrechner
                 output_unit.Items.Add(speed);
             }
         }
+        // fill units for volume
         private void SetUpVolume()
         {
             volumeList = new List<String>();
@@ -101,6 +110,7 @@ namespace Einheitenumrechner
                 output_unit.Items.Add(volume);
             }
         }
+        // fill units for weight
         private void SetUpWeight()
         {
             weightList = new List<String>();
@@ -120,6 +130,7 @@ namespace Einheitenumrechner
                 output_unit.Items.Add(weight);
             }
         }
+        // fill units for lenght
         private void SetUpLenght()
         {
             lenghtList = new List<String>();
@@ -141,6 +152,7 @@ namespace Einheitenumrechner
                 output_unit.Items.Add(lenght);
             }
         }
+        // fill units for currency
         private void SetUpCurrency()
         {
             currencyList = new List<String>();
@@ -169,6 +181,8 @@ namespace Einheitenumrechner
             }
         }
 
+        //read the entry and categorie to call the needed converter
+        //catch an unexpected input value
         private async void Button_Convert_Clicked(object sender, EventArgs e)
         {
             String inputValue = input_value.Text;
@@ -204,6 +218,7 @@ namespace Einheitenumrechner
                 await DisplayAlert("Warnung", "Deine Eingabe war fehlerhaft! Bitte versuche es erneut!", "OK");
             }
         }
+        //get start unit -> convert  to "m/s" -> convert to target unit
         private String ConvertSpeed(double input)
         {
             double standard, output;
@@ -257,6 +272,7 @@ namespace Einheitenumrechner
             }
             return string.Format("{0}", output);
         }
+        //get start unit -> convert  to "B" -> convert to target unit
         private String ConvertVolume(double input)
         {
             double standard, output;
@@ -382,6 +398,7 @@ namespace Einheitenumrechner
             }
             return string.Format("{0}", output);
         }
+        //get start unit -> convert  to "g" -> convert to target unit
         private String ConvertWeight(double input)
         {
             double standard, output;
@@ -459,6 +476,7 @@ namespace Einheitenumrechner
             }
             return string.Format("{0}", output);
         }
+        //get start unit -> convert  to "m" -> convert to target unit
         private String ConvertLenght(double input)
         {
             double standard, output;
@@ -548,11 +566,11 @@ namespace Einheitenumrechner
             }
             return string.Format("{0}", output);
         }
+        //get start unit -> convert  to "Dollar" -> convert to target unit
         private String ConvertCurrency(double input)
         {
             double standard, output;
             
-            //Umwandeln von Eingangseinheit in Standardeinheit (Dollar)
             switch (input_unit.SelectedIndex)
             {
                 case 0:
@@ -613,7 +631,6 @@ namespace Einheitenumrechner
                     standard = 0;
                     break;
             }
-            //Umwandeln von Standardeinheit (Dollar) in Ausgangseinheit
             switch (output_unit.SelectedIndex)
             {
                 case 0:
@@ -677,6 +694,7 @@ namespace Einheitenumrechner
             return string.Format("{0:0.00}", output);
         }
     }
+    //API object for evaluating the call
     class ApiResponse
     {
         public JObject ApiData { get; set; }
